@@ -43,5 +43,8 @@ bootstrapMicroframework({
         graphqlLoader,
     ],
 })
-    .then(() => banner(log))
+    .then(() => {
+        console.log('App is running');
+        return banner(log);
+    })
     .catch(error => log.error('Application is crashed: ' + error));

@@ -34,10 +34,7 @@ class CreatePetBody extends BasePet {
 @JsonController('/pets')
 @OpenAPI({ security: [{ basicAuth: [] }] })
 export class PetController {
-
-    constructor(
-        private petService: PetService
-    ) { }
+    constructor(private petService: PetService) {}
 
     @Get()
     @ResponseSchema(PetResponse, { isArray: true })
@@ -77,5 +74,4 @@ export class PetController {
     public delete(@Param('id') id: string): Promise<void> {
         return this.petService.delete(id);
     }
-
 }
